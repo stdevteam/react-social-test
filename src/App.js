@@ -1,25 +1,26 @@
 import './App.css';
-import {useEffect, useState} from 'react'
-import {request} from "./utils/request"
-import Post from "./components/post/index"
+import Create from "./components/forms/post/create"
+import PostPage from "./pages/posts"
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
-
-  const [posts, setPosts] = useState([])
-
-  useEffect(() => {
-    (async () => {
-      const posts = await request("/posts/");
-      setPosts(posts);
-    })()
-  }, []);
-
   return (
-    <div>
-      {posts.map(post => {
-        return <Post props={post}/>
-      })}
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <PostPage/>
+        </Route>
+        <Route path="/posts/create">
+          <Create/>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
