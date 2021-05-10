@@ -24,6 +24,7 @@ export default function PostForm({data}) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (!values.title || !values.text) return;
     let endpoint = '/posts/';
     let method = "POST";
     let body = values;
