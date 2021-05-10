@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
-import {request} from "../utils/request"
-import Post from "../components/post/index"
+import {request} from "../../utils/request"
+import Post from "../../components/postsPage/post"
 import {Link} from "react-router-dom";
 
 export default function PostPage() {
@@ -17,12 +17,14 @@ export default function PostPage() {
   return (
     <div>
       <div>
-        <Link to="/posts/create">Create Post</Link>
+        <Link to="/posts/create">
+          <button>Create Post</button>
+        </Link>
       </div>
 
       <div>
         {posts.map(post => {
-          return <Post props={post}/>
+          return <Post props={post} key={post.id}/>
         })}
       </div>
     </div>
