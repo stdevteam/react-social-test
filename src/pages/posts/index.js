@@ -14,6 +14,10 @@ export default function PostPage() {
     })()
   }, []);
 
+  const removePost = (post_id) => {
+    setPosts(posts.filter(post => post.id !== post_id))
+  }
+
   return (
     <div>
       <div>
@@ -24,7 +28,7 @@ export default function PostPage() {
 
       <div>
         {posts.map(post => {
-          return <Post props={post} key={post.id}/>
+          return <Post props={post} removePost={removePost} key={post.id}/>
         })}
       </div>
     </div>

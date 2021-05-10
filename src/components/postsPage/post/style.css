@@ -4,3 +4,16 @@
     border: 1px solid gray;
     margin: 10px 0;
 }
+.post a{
+    text-decoration: none;
+}
+.post a:hover{
+    text-decoration: underline;
+}
+.delete-post{
+    float: right;
+    color: white;
+    background-color: red;
+    cursor: pointer;
+    padding: 5px 8px;
+}
